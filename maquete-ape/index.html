@@ -97,6 +97,32 @@ input[type=range]{width:100%;accent-color:var(--sun);margin:2px 0}
 .chip.piece{width:84px}
 .chip.piece canvas{width:74px;height:74px;background:#33403b}
 
+/* painel de medidas */
+.measures{right:16px;bottom:16px;width:290px;max-height:calc(100% - 380px);overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.mhead{display:flex;justify-content:space-between;align-items:flex-start}
+.mhead strong{display:block;font-size:17px;font-weight:700;margin-top:2px}
+.mhead .x{border:0;background:none;color:var(--muted);font-size:20px;line-height:1;cursor:pointer;padding:2px 6px}
+.now{margin:0;font-size:13px;color:var(--sun);font-variant-numeric:tabular-nums}
+.presets{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.presets button{display:flex;flex-direction:column;align-items:flex-start;gap:1px;text-align:left;background:var(--glass-2);border:1px solid var(--line);border-radius:9px;padding:7px 9px;cursor:pointer}
+.presets button span{font-size:12.5px;font-weight:600}
+.presets button em{font-style:normal;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.presets button[aria-pressed="true"]{border-color:var(--sun);box-shadow:inset 0 0 0 1px var(--sun)}
+.custom{display:flex;flex-direction:column;gap:6px}
+.custom label{display:grid;grid-template-columns:96px 1fr auto;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.custom input{width:100%;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:7px;color:var(--ink);font:500 14px/1 var(--sans);padding:7px 8px;font-variant-numeric:tabular-nums}
+.custom em{font-style:normal;font-size:12px}
+.opt{display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--muted)}
+.opt .seg{flex-wrap:wrap}
+.opt .seg button{flex:1 1 auto;white-space:nowrap}
+.seg.small button{padding:6px 8px;font-size:12.5px}
+
+/* lâmpadas clicáveis */
+.bulb{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--glass);color:var(--muted);cursor:pointer;padding:0;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .2s,color .2s,box-shadow .2s}
+.bulb:hover{color:var(--ink);border-color:rgba(241,180,76,.7)}
+.bulb.on{background:var(--sun);color:var(--sun-ink);border-color:var(--sun);box-shadow:0 0 0 4px rgba(241,180,76,.22),0 0 18px rgba(255,200,120,.55)}
+.bulb.day{opacity:.7}
+
 /* elementos presos à cena */
 .lab{white-space:nowrap;background:var(--glass);border:1px solid var(--line);border-radius:6px;padding:3px 8px;font:600 12px/1.25 var(--sans);color:var(--ink);text-align:center}
 .lab span{display:block;font-weight:400;font-size:11px;color:var(--muted)}
@@ -110,6 +136,7 @@ input[type=range]{width:100%;accent-color:var(--sun);margin:2px 0}
 .piecemenu strong{font-weight:600;margin-right:4px}
 .piecemenu button{background:var(--glass-2);border:1px solid var(--line);border-radius:7px;padding:5px 9px;cursor:pointer;font-size:12.5px}
 .piecemenu button:hover{border-color:var(--sun)}
+.piecemenu button[aria-pressed="true"]{border-color:var(--sun);color:var(--sun)}
 .piecemenu .x,.help .x{border:0;background:none;font-size:18px;line-height:1;padding:2px 6px;color:var(--muted)}
 
 .ghost{display:none;position:fixed;left:0;top:0;pointer-events:none;z-index:50;margin:-31px 0 0 -31px}
@@ -135,6 +162,7 @@ input[type=range]{width:100%;accent-color:var(--sun);margin:2px 0}
 @media (max-width:1180px){
   .tray{width:auto;min-width:0;left:16px;right:16px;transform:none}
   .leftcol{bottom:200px}
+  .measures{bottom:200px;max-height:calc(100% - 560px);min-height:220px}
   .daylight{width:236px}
   .times{grid-template-columns:1fr 1fr}
 }
@@ -148,6 +176,7 @@ input[type=range]{width:100%;accent-color:var(--sun);margin:2px 0}
   .mood{display:none}
   .mood.open{position:fixed;left:10px;right:10px;bottom:272px;max-height:calc(100% - 380px);overflow:auto}
   .daylight{display:none;left:10px;right:10px;width:auto;top:auto;bottom:272px}
+  .measures{left:10px;right:10px;width:auto;bottom:272px;max-height:calc(100% - 390px);min-height:0}
   .mood.open,.daylight.open{display:flex}
   .tray{left:10px;right:10px;bottom:10px;padding:8px 10px 10px}
   .context{font-size:12px}
